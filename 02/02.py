@@ -25,8 +25,30 @@ while i < len(lines):
     
     i += 1
 
-print('forward ', dir_forward)
-print('down ', dir_down)
-print('up ', dir_up)
-
 print('First star: ', dir_forward * (dir_down - dir_up))
+
+################################################################################
+
+
+horizontal = 0
+depth = 0
+aim = 0
+
+i = 0
+
+while i < len(lines):
+    cmdLine = lines[i]
+    direction, numeric = cmdLine.split()
+    num = int(numeric)
+
+    if direction == 'forward':
+        horizontal += num
+        depth += aim * num
+    if direction == 'up':
+        aim -= num
+    if direction == 'down':
+        aim += num
+    
+    i += 1
+
+print('Second star: ', horizontal * depth)
